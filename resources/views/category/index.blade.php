@@ -10,8 +10,13 @@
         </div>
     @endif
 
-    <div class="d-flex justify-content-start mb-2">
+    <div class="d-flex justify-content-between mb-2">
         <a href="{{ route('category.create') }}" class="btn btn-primary">Adicionar Categoria</a>
+        <div>
+            <form action="{{ route('category.index') }}" method="get">
+                <input type="text" name="search" id="search" placeholder="Pesquisar Categoria" class="form-control d-inline-block" style="width: auto;">
+            </form>
+        </div>
     </div>
 
     <div class="d-flex justify-content-center">
