@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -30,7 +30,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'type' => 'required|string|in:income,expense',
+            'color' => 'required|string|max:7',
+        ]);
+
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->type = $request->input('type');
+        $category->color = $request->input('color');
+        $category->user_id = $request->input('user_id');
+        $category->save();
+
+        return redirect()->route('category.index')->with('success', 'Categoria criada com sucesso!');
     }
 
     /**
@@ -46,7 +59,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -54,7 +68,19 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'type' => 'required|string|in:income,expense',
+            'color' => 'required|string|max:7',
+        ]);
+
+        $category = Category::findOrFail($id);
+        $category->name = $request->input('name');
+        $category->type = $request->input('type');
+        $category->color = $request->input('color');
+        $category->save();
+
+        return redirect()->route('category.index')->with('success', 'Categoria atualizada com sucesso!');
     }
 
     /**
@@ -62,6 +88,9 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect()->route('category.index')->with('success', 'Categoria excluída com sucesso!');
     }
 }
