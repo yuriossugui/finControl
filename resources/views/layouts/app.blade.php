@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'finControl')</title>
 
+    <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}">
+
     {{-- Bootstrap (importado via laravel/ui) --}}
     @vite('resources/sass/app.scss')
 
@@ -71,6 +73,11 @@
             border-radius: 4px;
         }
 
+        .sidebar ion-icon {
+            font-size: 1.5em;
+            margin-right: 0.5em;
+        }
+
         @media (max-width: 768px) {
             .toggle-btn {
                 display: block;
@@ -91,6 +98,12 @@
             @yield('content')
         </main>
 
+        {{-- importacao do datatables --}}
+        <script src="{{ asset('js/datatables.min.js') }}"></script>
+
+        {{-- importacao do ionicons --}}
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    
         <script>
             // Toggle sidebar em telas pequenas
             document.getElementById('toggleSidebar').addEventListener('click', function() {

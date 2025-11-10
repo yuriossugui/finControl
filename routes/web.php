@@ -10,4 +10,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/categoria', [CategoryController::class, 'index'])->name('categoria.index')->middleware('auth');
+
+Route::middleware('auth')->group(function (){
+    Route::get('/categoria', [CategoryController::class, 'index'])->name('categoria.index');
+    
+});
