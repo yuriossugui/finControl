@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\TransactionController;
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::check()){
+        return redirect()->route('transactions.index');
+    }
+    Route::redirect('/','/login');
 });
 
 Auth::routes();
@@ -22,4 +25,9 @@ Route::middleware('auth')->group(function (){
 
     Route::get('/transacao', [TransactionController::class, 'index'])->name('transactions.index');
     Route::get('/transacao/create', [TransactionController::class, 'create'])->name('transactions.create');
+    Route::post('/transacao/store', [TransactionController::class, 'store'])->name('transactions.store');
+    Route::get('/transacao/show/{id}', [TransactionController::class, 'show'])->name('transactions.show');
+    Route::get('/transacao/edit/{id}', [TransactionController::class, 'edit'])->name('transactions.edit');
+    Route::put('/transacao/update/{id}', [TransactionController::class, 'update'])->name('transactions.update');
+    Route::delete('/transacao/destroy/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
 });

@@ -102,7 +102,7 @@
         <script src="{{ asset('js/datatables.min.js') }}"></script>
 
         {{-- importacao do ionicons --}}
-        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
     
         <script>
             // Toggle sidebar em telas pequenas

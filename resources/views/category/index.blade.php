@@ -15,6 +15,8 @@
         <div>
             <form action="{{ route('category.index') }}" method="get">
                 <input type="text" name="search" id="search" placeholder="Pesquisar Categoria" class="form-control d-inline-block" style="width: auto;">
+
+                <button type="submit" class="btn btn-primary"><ion-icon name="search"></ion-icon></button>
             </form>
         </div>
     </div>
@@ -26,8 +28,7 @@
                     <th>Nome</th>
                     <th>Tipo</th>
                     <th>Cor</th>
-                    <th>Editar</th>
-                    <th>Excluir</th>
+                    <th colspan="2">Ações</th>
                 </tr>
             </thead>
             <tbody class="text-center">
