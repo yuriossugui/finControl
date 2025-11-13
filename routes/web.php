@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\GoalController;
 
 Route::get('/', function () {
     if(Auth::check()){
@@ -30,4 +31,6 @@ Route::middleware('auth')->group(function (){
     Route::get('/transacao/edit/{id}', [TransactionController::class, 'edit'])->name('transactions.edit');
     Route::put('/transacao/update/{id}', [TransactionController::class, 'update'])->name('transactions.update');
     Route::delete('/transacao/destroy/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
+
+    Route::resource('goals', GoalController::class);
 });
