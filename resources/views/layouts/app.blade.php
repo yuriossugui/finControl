@@ -98,11 +98,15 @@
             @yield('content')
         </main>
 
+        @vite('resources/js/app.js')
+
         {{-- importacao do datatables --}}
         <script src="{{ asset('js/datatables.min.js') }}"></script>
 
         {{-- importacao do ionicons --}}
         <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
         <script>
             // Toggle sidebar em telas pequenas

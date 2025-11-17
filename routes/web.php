@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\GoalController;
+use App\Http\Controllers\ReportController;
 
 Route::get('/', function () {
     if(Auth::check()){
@@ -33,4 +34,6 @@ Route::middleware('auth')->group(function (){
     Route::delete('/transacao/destroy/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
 
     Route::resource('goals', GoalController::class);
+
+    Route::resource('reports', ReportController::class);
 });
