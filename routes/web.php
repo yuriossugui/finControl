@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\GoalController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     if(Auth::check()){
@@ -36,4 +37,6 @@ Route::middleware('auth')->group(function (){
     Route::resource('goals', GoalController::class);
 
     Route::resource('reports', ReportController::class);
+
+    Route::resource('dashboard', DashboardController::class);
 });

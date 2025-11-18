@@ -3,7 +3,7 @@
         <h5>finControl</h5>
     </div>
 
-    <a href="#"><ion-icon name="pie"></ion-icon> Dashboard</a>
+    <a href="{{ route('dashboard.index') }}"><ion-icon name="pie"></ion-icon> Dashboard</a>
     <a href="{{ route('category.index') }}"><ion-icon name="list"></ion-icon> Categorias</a>
     <a href="{{ route('transactions.index') }}"><ion-icon name="cash"></ion-icon> Transações</a>
     <a href="{{ route('goals.index') }}"><ion-icon name="bookmark"></ion-icon> Metas</a>
